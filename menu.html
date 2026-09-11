@@ -93,30 +93,20 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
 <footer>
   <p>延安十三年红色音乐高校美育平台 · <span>红色音乐赋能高校思政美育</span></p >
 </footer>
-<!-- ===== 山丹丹 AI 悬浮入口 ===== -->
-<div id="ai-float-btn" onclick="toggleAiBox()">
+<!-- ===== 山丹丹 AI 悬浮入口（点击新标签页打开） ===== -->
+<div id="ai-float-btn" onclick="openAiBox()">
   <div class="ai-avatar">丹</div>
   <div class="ai-name">山丹丹</div>
 </div>
 
-<div id="ai-chat-box">
-  <div class="ai-chat-header">
-    <div class="ai-chat-title">🎵 山丹丹 · 红色音乐AI助教</div>
-    <div class="ai-chat-close" onclick="toggleAiBox()">✕</div>
-  </div>
-  <iframe id="ai-chat-iframe" src="" 
-          frameborder="0" 
-          allow="microphone">
-  </iframe>
-</div>
-
 <style>
-/* 悬浮按钮 */
 #ai-float-btn{
   position:fixed;
   right:26px;
   bottom:26px;
-  display:flex;align-items:center;gap:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
   background:linear-gradient(135deg,#B22222,#8B1A1A);
   color:#F5D76E;
   padding:12px 22px 12px 14px;
@@ -127,6 +117,7 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
   transition:.3s;
   border:2px solid #E6B422;
   animation:aiFloatBreath 3s ease-in-out infinite;
+  user-select:none;
 }
 @keyframes aiFloatBreath{
   0%,100%{box-shadow:0 6px 22px rgba(139,26,26,.5);}
@@ -144,87 +135,31 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-weight:900;font-size:18px;
-  animation:aiAvatarSpin 8s linear infinite;
+  animation:aiAvatarWave 3s ease-in-out infinite;
 }
-@keyframes aiAvatarSpin{
+@keyframes aiAvatarWave{
   0%,100%{transform:rotate(0deg);}
-  25%{transform:rotate(-10deg);}
-  75%{transform:rotate(10deg);}
+  25%{transform:rotate(-12deg);}
+  75%{transform:rotate(12deg);}
 }
 #ai-float-btn .ai-name{
-  font-size:15px;font-weight:900;letter-spacing:2px;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:2px;
 }
-
-/* 聊天窗口 */
-#ai-chat-box{
-  position:fixed;
-  right:26px;
-  bottom:100px;
-  width:380px;
-  height:560px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 14px 50px rgba(0,0,0,.35);
-  display:none;
-  flex-direction:column;
-  overflow:hidden;
-  z-index:9999;
-  border:2px solid #E6B422;
-  animation:aiBoxIn .3s ease-out;
-}
-@keyframes aiBoxIn{
-  from{opacity:0;transform:translateY(20px) scale(.95);}
-  to{opacity:1;transform:translateY(0) scale(1);}
-}
-#ai-chat-box.open{display:flex;}
-.ai-chat-header{
-  background:linear-gradient(135deg,#B22222,#8B1A1A);
-  color:#F5D76E;
-  padding:14px 18px;
-  display:flex;align-items:center;justify-content:space-between;
-  font-weight:900;letter-spacing:2px;
-}
-.ai-chat-title{font-size:15px;}
-.ai-chat-close{
-  cursor:pointer;font-size:18px;
-  width:28px;height:28px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:50%;
-  transition:.3s;
-}
-.ai-chat-close:hover{background:rgba(255,255,255,.2);}
-#ai-chat-iframe{
-  flex:1;
-  width:100%;
-  border:none;
-}
-
-/* 手机端适配 */
 @media(max-width:600px){
   #ai-float-btn{right:16px;bottom:16px;padding:10px 18px 10px 12px;}
   #ai-float-btn .ai-name{font-size:13px;}
-  #ai-chat-box{
-    right:10px;left:10px;bottom:90px;
-    width:auto;height:70vh;
-  }
+  #ai-float-btn .ai-avatar{width:30px;height:30px;font-size:15px;}
 }
 </style>
 
 <script>
-function toggleAiBox(){
-  var box = document.getElementById('ai-chat-box');
-  var iframe = document.getElementById('ai-chat-iframe');
-  var url = "https://yuanqi.tencent.com/webim/#/chat/mrkei?appid=2098349671251635264&experience=true";
-
-  if(!box.classList.contains('open')){
-    // 第一次打开时才加载 iframe，避免每次刷新都加载
-    if(iframe.src === "" || iframe.src === "about:blank"){
-      iframe.src = url;
-    }
-    box.classList.add('open');
-  } else {
-    box.classList.remove('open');
-  }
+function openAiBox(){
+  window.open(
+    "https://yuanqi.tencent.com/webim/#/chat/mrkei?appid=2098349671251635264&experience=true",
+    "_blank"
+  );
 }
 </script>
 <!-- ===== 山丹丹 AI 悬浮入口 结束 ===== -->
