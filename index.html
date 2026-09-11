@@ -60,24 +60,107 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
 <footer>
   <p>延安十三年红色音乐高校美育平台 · <span>红色音乐赋能高校思政美育</span></p >
 </footer>
-<!-- ===== 山丹丹 AI 助手（扣子 Chat SDK） ===== -->
-<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+<!-- ===== 山丹丹 AI 助手 ===== -->
+<div id="ai-float-btn" onclick="toggleAiBox()">
+  <div class="ai-avatar">丹</div>
+  <div class="ai-name">山丹丹</div>
+</div>
+
+<div id="ai-chat-box">
+  <div class="ai-chat-header">
+    <span>🎵 山丹丹 · 红色音乐AI助教</span>
+    <span class="ai-chat-close" onclick="toggleAiBox()">✕</span>
+  </div>
+  <iframe id="ai-chat-iframe" src="" frameborder="0" allow="microphone"></iframe>
+</div>
+
+<style>
+#ai-float-btn{
+  position:fixed;right:26px;bottom:26px;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#B22222,#8B1A1A);
+  color:#F5D76E;padding:12px 22px 12px 14px;
+  border-radius:50px;cursor:pointer;
+  box-shadow:0 6px 22px rgba(139,26,26,.5);
+  z-index:9998;transition:.3s;border:2px solid #E6B422;
+  animation:aiFloatBreath 3s ease-in-out infinite;
+  user-select:none;
+}
+@keyframes aiFloatBreath{
+  0%,100%{box-shadow:0 6px 22px rgba(139,26,26,.5);}
+  50%{box-shadow:0 6px 30px rgba(230,180,34,.8);}
+}
+#ai-float-btn:hover{
+  transform:translateY(-4px) scale(1.05);
+  animation:none;
+  box-shadow:0 10px 32px rgba(230,180,34,.9);
+}
+#ai-float-btn .ai-avatar{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,#E6B422,#F5D76E);
+  color:#8B1A1A;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:18px;
+  animation:aiAvatarWave 3s ease-in-out infinite;
+}
+@keyframes aiAvatarWave{
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(-12deg);}
+  75%{transform:rotate(12deg);}
+}
+#ai-float-btn .ai-name{font-size:15px;font-weight:900;letter-spacing:2px;}
+
+#ai-chat-box{
+  position:fixed;right:26px;bottom:100px;
+  width:390px;height:580px;
+  background:#fff;border-radius:12px;
+  box-shadow:0 14px 50px rgba(0,0,0,.35);
+  display:none;flex-direction:column;overflow:hidden;
+  z-index:9999;border:2px solid #E6B422;
+  animation:aiBoxIn .3s ease-out;
+}
+@keyframes aiBoxIn{
+  from{opacity:0;transform:translateY(20px) scale(.95);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+#ai-chat-box.open{display:flex;}
+.ai-chat-header{
+  background:linear-gradient(135deg,#B22222,#8B1A1A);
+  color:#F5D76E;padding:14px 18px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-weight:900;letter-spacing:2px;font-size:15px;
+}
+.ai-chat-close{
+  cursor:pointer;font-size:18px;
+  width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:.3s;
+}
+.ai-chat-close:hover{background:rgba(255,255,255,.2);}
+#ai-chat-iframe{flex:1;width:100%;border:none;}
+
+@media(max-width:600px){
+  #ai-float-btn{right:16px;bottom:16px;padding:10px 18px 10px 12px;}
+  #ai-float-btn .ai-name{font-size:13px;}
+  #ai-chat-box{right:10px;left:10px;bottom:90px;width:auto;height:70vh;}
+}
+</style>
+
 <script>
-  new CozeWebSDK.WebChatClient({
-    config: {
-      bot_id: '7684224130866380838',
-    },
-    componentProps: {
-      title: '山丹丹',
-    },
-    auth: {
-      type: 'token',
-      token: 'pat_********',
-      onRefreshToken: function () {
-        return 'pat_DEiHAeSsmpDBdAJJHkR6MOkhDeAllhBRFFMa5vPUgBrUOUCZs6aquqM4SlpIrv7K'
-      }
+function toggleAiBox(){
+  var box = document.getElementById('ai-chat-box');
+  var iframe = document.getElementById('ai-chat-iframe');
+  var url = "https://www.coze.cn/store/agent/7684224130866380838?bot_id=true";
+
+  if(!box.classList.contains('open')){
+    if(iframe.src === "" || iframe.src === "about:blank"){
+      iframe.src = url;
     }
-  });
+    box.classList.add('open');
+  } else {
+    box.classList.remove('open');
+  }
+}
 </script>
 <!-- ===== 山丹丹 AI 助手 结束 ===== -->
 </body>
