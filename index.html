@@ -60,6 +60,61 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
 <footer>
   <p>延安十三年红色音乐高校美育平台 · <span>红色音乐赋能高校思政美育</span></p >
 </footer>
-https://yuanqi.tencent.com/webim/#/chat/mrkcel?appid=2098349671251635264&experience=true
+<!-- ===== 山丹丹 AI 助手 ===== -->
+<div id="ai-float-btn" onclick="openShanDanDan()">
+  <div class="ai-avatar">丹</div>
+  <div class="ai-name">山丹丹</div>
+</div>
+
+<style>
+#ai-float-btn{
+  position:fixed;right:26px;bottom:26px;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#B22222,#8B1A1A);
+  color:#F5D76E;padding:12px 22px 12px 14px;
+  border-radius:50px;cursor:pointer;
+  box-shadow:0 6px 22px rgba(139,26,26,.5);
+  z-index:9998;transition:.3s;border:2px solid #E6B422;
+  animation:aiFloatBreath 3s ease-in-out infinite;
+  user-select:none;
+}
+@keyframes aiFloatBreath{
+  0%,100%{box-shadow:0 6px 22px rgba(139,26,26,.5);}
+  50%{box-shadow:0 6px 30px rgba(230,180,34,.8);}
+}
+#ai-float-btn:hover{
+  transform:translateY(-4px) scale(1.05);
+  animation:none;
+  box-shadow:0 10px 32px rgba(230,180,34,.9);
+}
+#ai-float-btn .ai-avatar{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,#E6B422,#F5D76E);
+  color:#8B1A1A;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:18px;
+  animation:aiAvatarWave 3s ease-in-out infinite;
+}
+@keyframes aiAvatarWave{
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(-12deg);}
+  75%{transform:rotate(12deg);}
+}
+#ai-float-btn .ai-name{font-size:15px;font-weight:900;letter-spacing:2px;}
+@media(max-width:600px){
+  #ai-float-btn{right:16px;bottom:16px;padding:10px 18px 10px 12px;}
+  #ai-float-btn .ai-name{font-size:13px;}
+}
+</style>
+
+<script>
+function openShanDanDan(){
+  window.open(
+    "https://yuanqi.tencent.com/webim/#/chat/mrkcel?appid=2098349671251635264&experience=true",
+    "_blank"
+  );
+}
+</script>
+<!-- ===== 山丹丹 AI 助手 结束 ===== -->
 </body>
 </html>
