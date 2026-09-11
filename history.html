@@ -5,32 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>延安十三年历史讲解 - 延安十三年红色音乐高校美育平台</title>
 <style>
-:root{--orange:#D35400;--orange-deep:#A04000;--gold:#F0D060;--cream:#FDF2E9;--text:#3A1A1A;}
+:root{--red-main:#B22222;--red-deep:#8B1A1A;--gold:#E6B422;--gold-light:#F5D76E;--cream:#FBF0E0;--text:#3A1A1A;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:"Microsoft YaHei","PingFang SC","Noto Serif SC",serif;background:var(--cream);color:var(--text);line-height:1.8;}
-header{background:var(--orange);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Serif SC",serif;background:var(--cream);color:var(--text);line-height:1.9;}
+header{background:var(--red-main);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
 .header-left{display:flex;align-items:center;gap:14px;}
-.logo-mark{width:44px;height:44px;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--orange);font-weight:900;font-size:22px;}
+.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--red-deep);font-weight:900;font-size:22px;animation:logoPulse 3s ease-in-out infinite;}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 0 rgba(230,180,34,0);}50%{box-shadow:0 0 20px rgba(230,180,34,.7);}}
 .header-title{font-size:18px;font-weight:900;letter-spacing:2px;color:#fff;}
-.header-nav a{color:#FFE8C8;text-decoration:none;margin-left:22px;font-size:14px;letter-spacing:2px;}
-.header-nav a:hover{color:var(--gold);}
-.page-banner{background:linear-gradient(135deg,#D35400,#A04000);color:#fff;text-align:center;padding:70px 40px 60px;}
-.page-banner h1{font-size:46px;letter-spacing:10px;font-weight:900;margin-bottom:16px;}
-.page-banner .gold-line{width:140px;height:3px;background:var(--gold);margin:0 auto;}
+.header-nav a{color:#FFE8C8;text-decoration:none;margin-left:22px;font-size:14px;letter-spacing:2px;transition:.3s;}
+.header-nav a:hover{color:var(--gold-light);text-shadow:0 0 10px var(--gold);}
+.page-banner{background:linear-gradient(135deg,var(--red-main),var(--red-deep),var(--red-main));background-size:200% 200%;color:#fff;text-align:center;padding:70px 40px 60px;animation:bannerFlow 8s ease infinite;}
+@keyframes bannerFlow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.page-banner h1{font-size:46px;letter-spacing:10px;font-weight:900;margin-bottom:16px;color:var(--gold-light);text-shadow:2px 2px 0 rgba(0,0,0,.2),0 0 30px rgba(230,180,34,.25);animation:titleFade 1s ease-out;}
+@keyframes titleFade{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+.page-banner .gold-line{width:140px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto;animation:lineExpand 1s ease-out;}
+@keyframes lineExpand{from{width:0;opacity:0;}to{width:140px;opacity:1;}}
 .content{max-width:900px;margin:0 auto;padding:60px 40px;}
-.sub-title-box{display:inline-block;background:var(--orange-deep);color:var(--gold);padding:8px 26px;font-size:16px;letter-spacing:4px;font-weight:700;border-radius:2px;box-shadow:0 3px 10px rgba(160,64,0,.35);margin-bottom:20px;}
-.detail-block{background:#fff;border-left:6px solid var(--orange);padding:30px 34px;margin-bottom:28px;box-shadow:0 6px 20px rgba(160,64,0,.1);border-radius:0 4px 4px 0;}
-.detail-block h3{color:var(--orange-deep);font-size:22px;letter-spacing:4px;margin-bottom:12px;font-weight:800;}
-.detail-block p{font-size:15px;color:#5A3A3A;letter-spacing:1px;}
-.back-btn{display:inline-block;margin-top:20px;background:var(--orange-deep);color:var(--gold);padding:12px 40px;letter-spacing:4px;text-decoration:none;border-radius:2px;transition:.3s;}
-.back-btn:hover{background:var(--gold);color:var(--orange-deep);}
-footer{background:#3A1A1A;color:#C9A9A9;text-align:center;padding:20px;font-size:13px;letter-spacing:2px;margin-top:40px;}
-footer span{color:var(--gold);}
-@media(max-width:768px){
-  .page-banner h1{font-size:28px;letter-spacing:6px;}
-  .header-title{font-size:14px;}
-  .header-nav a{margin-left:12px;font-size:12px;}
-}
+.sub-title-box{display:inline-block;background:var(--red-deep);color:var(--gold-light);padding:8px 26px;font-size:16px;letter-spacing:4px;font-weight:700;border-radius:2px;border-left:4px solid var(--gold);box-shadow:0 3px 10px rgba(139,26,26,.35);margin-bottom:20px;transition:.3s;}
+.sub-title-box:hover{transform:translateX(6px);box-shadow:0 3px 20px rgba(230,180,34,.5);}
+.detail-block{background:#fff;border-left:6px solid var(--red-main);padding:30px 34px;margin-bottom:28px;box-shadow:0 6px 20px rgba(139,26,26,.1);border-radius:0 4px 4px 0;transition:.4s;opacity:0;animation:blockIn .8s ease-out forwards;}
+.detail-block:nth-child(2){animation-delay:.15s;}
+.detail-block:nth-child(4){animation-delay:.3s;}
+.detail-block:nth-child(6){animation-delay:.45s;}
+@keyframes blockIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.detail-block:hover{border-left-color:var(--gold);box-shadow:0 10px 30px rgba(139,26,26,.2);transform:translateX(6px);}
+.detail-block h3{color:var(--red-deep);font-size:22px;letter-spacing:4px;margin-bottom:12px;font-weight:800;}
+.detail-block p{font-size:15px;color:#5A3A3A;letter-spacing:1px;text-indent:2em;margin-bottom:10px;}
+.detail-block p:last-child{margin-bottom:0;}
+.back-btn{display:inline-block;margin-top:20px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--red-deep);padding:12px 40px;letter-spacing:4px;font-weight:700;text-decoration:none;border-radius:2px;transition:.3s;box-shadow:0 4px 12px rgba(230,180,34,.3);animation:btnBreath 2.4s ease-in-out infinite;}
+@keyframes btnBreath{0%,100%{box-shadow:0 4px 12px rgba(230,180,34,.3);}50%{box-shadow:0 6px 24px rgba(230,180,34,.7);}}
+.back-btn:hover{background:var(--red-deep);color:var(--gold-light);animation:none;transform:scale(1.05);}
+footer{background:#2A0A0A;color:#C9A9A9;text-align:center;padding:20px;font-size:13px;letter-spacing:2px;margin-top:40px;}
+footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;display:inline-block;}
+@keyframes footerGlow{0%,100%{opacity:.8;}50%{opacity:1;text-shadow:0 0 10px var(--gold);}}
+@media(max-width:768px){.page-banner h1{font-size:28px;letter-spacing:6px;}.header-title{font-size:14px;}.header-nav a{margin-left:12px;font-size:12px;}}
 </style>
 </head>
 <body>
@@ -41,9 +50,9 @@ footer span{color:var(--gold);}
     <div class="header-title">延安十三年红色音乐高校美育平台</div>
   </div>
   <nav class="header-nav">
-    <a href="index.html">首页</a >
+    <a href=" ">首页</a >
     <a href="menu.html">学习板块</a >
-    <a href="share.html">成果分享</a >
+    <a href="about.html">关于平台</a >
   </nav>
 </header>
 
@@ -53,10 +62,11 @@ footer span{color:var(--gold);}
 </section>
 
 <section class="content">
-  <div class="sub-title-box">历史背景</div>
+
+  <div class="sub-title-box">一、延安十三年历史讲解</div>
   <div class="detail-block">
-    <h3>延安十三年历史讲解</h3>
-    <p>1935年至1948年，中共中央在延安领导中国革命十三年，这段历史是中国革命从低潮走向高潮的关键时期。平台将系统梳理延安时期的重要历史节点与时代背景。</p >
+    <p>延安十三年（1935—1948）是中国共产党领导中国革命由低潮走向高潮、由局部执政走向全国胜利的关键时期。这一时期，延安地区长期面临日军军事攻击与国民党顽固派经济封锁、军事围剿的双重压力，经济萧条，物资匮乏。为应对生存危机，中国共产党领导开展大生产运动，实行“自己动手，丰衣足食”；同时推行民主选举，建立“三三制”政权，巩固抗日民族统一战线。在如此艰苦的条件下，红色音乐承担着鼓舞军民斗志、动员群众参与、宣传党的政策等多重功能，成为革命文化的重要组成部分。</p >
+    <p>从文化领导权与意识形态动员的角度看，延安红色音乐是中国共产党在边区构建文化领导权、实现社会动员的重要载体。它以音乐为媒介，将革命理念、政治主张与群众情感相联结，在战争环境中发挥了不可替代的宣传与整合作用。</p >
   </div>
 
   <a class="back-btn" href="menu.html">返回学习板块</a >
