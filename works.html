@@ -159,6 +159,51 @@ footer span{color:var(--gold);}
   .work-body{padding:22px;}
   .top-nav a{font-size:12px;padding:8px 16px;}
 }
+ /* ===== 快速导航 ===== */
+.quick-nav{
+  position:fixed;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  background:#fff;
+  border-left:4px solid var(--red-main);
+  border-radius:0 6px 6px 0;
+  box-shadow:0 6px 24px rgba(139,26,26,.18);
+  padding:14px 0;
+  z-index:999;
+  display:flex;
+  flex-direction:column;
+  min-width:140px;
+}
+.quick-nav-title{
+  font-size:13px;
+  color:var(--red-deep);
+  font-weight:900;
+  letter-spacing:3px;
+  text-align:center;
+  padding:0 14px 10px;
+  border-bottom:2px solid var(--gold);
+  margin-bottom:8px;
+}
+.quick-nav a{
+  font-size:14px;
+  color:var(--red-deep);
+  text-decoration:none;
+  padding:8px 18px;
+  letter-spacing:1px;
+  transition:.3s;
+  border-left:3px solid transparent;
+}
+.quick-nav a:hover{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--red-deep);
+  border-left-color:var(--red-main);
+  padding-left:22px;
+}
+
+@media(max-width:1000px){
+  .quick-nav{display:none;}
+}
 </style>
 </head>
 <body>
@@ -174,7 +219,16 @@ footer span{color:var(--gold);}
     <a href="about.html">关于平台</a>
   </nav>
 </header>
-
+<!-- 快速导航 -->
+<div class="quick-nav">
+  <div class="quick-nav-title">快速导航</div>
+  <a href=" ">黄河大合唱</a >
+  <a href="#shengchan">生产大合唱</a >
+  <a href="#nanniwan">南泥湾</a >
+  <a href="#yanansong">延安颂</a >
+  <a href="#baimaonv">白毛女</a >
+  <a href="#shennv">神女</a >
+</div>
 <section class="page-banner">
   <h1>红色音乐作品赏析</h1>
   <div class="gold-line"></div>
@@ -191,7 +245,7 @@ footer span{color:var(--gold);}
 <section class="content">
 
   <!-- ============ 卡片 1 《黄河大合唱》 ============ -->
-  <div class="work-card">
+  <div class="work-card" id="huanghe">
     <div class="work-head">
       <div class="work-title">《黄河大合唱》</div>
       <div class="work-sub">冼星海 | 1939 | 鲁艺 · 大型声乐套曲</div>
@@ -238,7 +292,7 @@ footer span{color:var(--gold);}
   </div>
 
   <!-- ============ 卡片 2 《生产大合唱》 ============ -->
-  <div class="work-card">
+  <div class="work-card" id="shengchan">
     <div class="work-head">
       <div class="work-title">《生产大合唱》</div>
       <div class="work-sub">冼星海 | 1939 | 鲁艺 · 大型声乐套曲</div>
@@ -282,7 +336,7 @@ footer span{color:var(--gold);}
   </div>
 
   <!-- ============ 卡片 3 《南泥湾》 ============ -->
-  <div class="work-card">
+  <div class="work-card" id="nanniwan">
     <div class="work-head">
       <div class="work-title">《南泥湾》</div>
       <div class="work-sub">贺敬之词 · 马可曲 | 1943 | 鲁艺秧歌 · 民歌风抒情曲</div>
@@ -324,7 +378,7 @@ footer span{color:var(--gold);}
   </div>
 
   <!-- ============ 卡片 4 《延安颂》 ============ -->
-  <div class="work-card">
+  <div class="work-card" id="yanansong">
     <div class="work-head">
       <div class="work-title">《延安颂》</div>
       <div class="work-sub">郑律成 | 1938 | 延安 · 抒情颂歌</div>
@@ -366,7 +420,7 @@ footer span{color:var(--gold);}
   </div>
 
   <!-- ============ 卡片 5 新歌剧《白毛女》 ============ -->
-  <div class="work-card">
+  <div class="work-card" id="baimaonv">
     <div class="work-head">
       <div class="work-title">新歌剧《白毛女》</div>
       <div class="work-sub">贺敬之等 | 1945 | 鲁艺 · 民族新歌剧</div>
@@ -410,7 +464,7 @@ footer span{color:var(--gold);}
   </div>
 
   <!-- ============ 卡片 6 《神女》 ============ -->
-  <div class="work-card">
+  <div class="work-card" id="shennv">
     <div class="work-head">
       <div class="work-title">《神女》</div>
       <div class="work-sub">贺绿汀 | 1936 | 上海 · 左翼电影艺术歌曲</div>
