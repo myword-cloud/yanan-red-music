@@ -57,6 +57,51 @@ footer span{color:var(--gold);}
   .work-body{padding:22px;}
   .top-nav a{font-size:12px;padding:8px 16px;}
 }
+  /* ===== 快速导航 ===== */
+.quick-nav{
+  position:fixed;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  background:#fff;
+  border-left:4px solid var(--red-main);
+  border-radius:0 6px 6px 0;
+  box-shadow:0 6px 24px rgba(139,26,26,.18);
+  padding:14px 0;
+  z-index:999;
+  display:flex;
+  flex-direction:column;
+  min-width:130px;
+}
+.quick-nav-title{
+  font-size:13px;
+  color:var(--red-deep);
+  font-weight:900;
+  letter-spacing:3px;
+  text-align:center;
+  padding:0 14px 10px;
+  border-bottom:2px solid var(--gold);
+  margin-bottom:8px;
+}
+.quick-nav a{
+  font-size:14px;
+  color:var(--red-deep);
+  text-decoration:none;
+  padding:8px 18px;
+  letter-spacing:1px;
+  transition:.3s;
+  border-left:3px solid transparent;
+}
+.quick-nav a:hover{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--red-deep);
+  border-left-color:var(--red-main);
+  padding-left:22px;
+}
+
+@media(max-width:1000px){
+  .quick-nav{display:none;}
+}
 </style>
 </head>
 <body>
@@ -72,7 +117,15 @@ footer span{color:var(--gold);}
     <a href="about.html">关于平台</a >
   </nav>
 </header>
-
+<!-- 快速导航 -->
+<div class="quick-nav">
+  <div class="quick-nav-title">快速导航</div>
+  <a href=" ">南泥湾</a >
+  <a href="#lanhuahua">兰花花</a >
+  <a href="#shandandan">山丹丹开花红艳艳</a >
+  <a href="#eryueli">二月里来</a >
+  <a href="#dongfanghong">东方红</a >
+</div>
 <section class="page-banner">
   <h1>红色歌曲学唱实训</h1>
   <div class="gold-line"></div>
