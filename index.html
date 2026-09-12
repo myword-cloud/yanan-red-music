@@ -42,7 +42,10 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
     <div class="logo-mark">延</div>
     <div class="header-title">延安十三年红色音乐高校美育平台</div>
   </div>
-  <div class="header-right">红色音乐 · 思政美育</div>
+  <div class="header-right">
+  红色音乐 · 思政美育
+  <span id="login-btn" onclick="openLogin()">登录</span>
+</div>
 </header>
 
 <section class="hero">
@@ -118,5 +121,149 @@ function openShanDanDan(){
 }
 </script>
 <!-- ===== 山丹丹 AI 助手 结束 ===== -->
+  <!-- ===== 登录系统 ===== -->
+<div id="login-mask">
+  <div id="login-box">
+    <div class="login-head">
+      <span>登录 · 延安红色音乐平台</span>
+      <span class="login-close" onclick="closeLogin()">✕</span>
+    </div>
+    <div class="login-body">
+      <label>用户名</label>
+      <input type="text" id="login-user" placeholder="请输入用户名">
+      <label>密码</label>
+      <input type="password" id="login-pass" placeholder="请输入密码">
+      <div id="login-tip"></div>
+      <button onclick="doLogin()">登 录</button>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 导航栏里的登录按钮 */
+#login-btn{
+  color:#FFE8C8;
+  font-size:14px;
+  letter-spacing:2px;
+  margin-left:22px;
+  cursor:pointer;
+  transition:.3s;
+}
+#login-btn:hover{color:var(--gold-light);text-shadow:0 0 10px var(--gold);}
+
+/* 遮罩 */
+#login-mask{
+  display:none;
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,.55);
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+}
+#login-mask.open{display:flex;}
+
+/* 登录框 */
+#login-box{
+  width:360px;
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  animation:loginIn .3s ease-out;
+  border:2px solid var(--gold);
+}
+@keyframes loginIn{
+  from{opacity:0;transform:translateY(-20px) scale(.95);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+.login-head{
+  background:linear-gradient(135deg,#B22222,#8B1A1A);
+  color:#F5D76E;
+  padding:16px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-weight:900;letter-spacing:2px;font-size:15px;
+}
+.login-close{cursor:pointer;font-size:18px;}
+.login-body{padding:28px 24px;}
+.login-body label{
+  display:block;
+  font-size:13px;color:#8B1A1A;
+  font-weight:700;letter-spacing:2px;
+  margin-bottom:6px;margin-top:12px;
+}
+.login-body label:first-child{margin-top:0;}
+.login-body input{
+  width:100%;
+  padding:10px 14px;
+  border:2px solid #FBF0E0;
+  border-radius:4px;
+  font-size:14px;
+  font-family:inherit;
+  transition:.3s;
+  outline:none;
+}
+.login-body input:focus{border-color:#E6B422;}
+.login-body button{
+  width:100%;
+  margin-top:20px;
+  background:linear-gradient(135deg,#E6B422,#F5D76E);
+  color:#8B1A1A;
+  border:none;
+  padding:12px;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:4px;
+  border-radius:4px;
+  cursor:pointer;
+  transition:.3s;
+  font-family:inherit;
+}
+.login-body button:hover{
+  background:linear-gradient(135deg,#B22222,#8B1A1A);
+  color:#F5D76E;
+}
+#login-tip{
+  font-size:13px;
+  color:#B22222;
+  margin-top:10px;
+  text-align:center;
+  min-height:18px;
+}
+</style>
+
+<script>
+// ====== 账号密码（改这里）======
+var USER = "admin";
+var PASS = "123456";
+// ================================
+
+function openLogin(){
+  document.getElementById('login-mask').classList.add('open');
+}
+function closeLogin(){
+  document.getElementById('login-mask').classList.remove('open');
+}
+function doLogin(){
+  var u = document.getElementById('login-user').value;
+  var p = document.getElementById('login-pass').value;
+  if(u === USER && p === PASS){
+    document.getElementById('login-tip').textContent = "";
+    closeLogin();
+    // 改成“已登录”
+    var btn = document.getElementById('login-btn');
+    btn.textContent = "你好，" + u + "（退出）";
+    btn.onclick = function(){ logout(); };
+  } else {
+    document.getElementById('login-tip').textContent = "用户名或密码错误，请重试";
+  }
+}
+function logout(){
+  var btn = document.getElementById('login-btn');
+  btn.textContent = "登录";
+  btn.onclick = function(){ openLogin(); };
+}
+</script>
+<!-- ===== 登录系统结束 ===== -->
 </body>
 </html>
