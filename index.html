@@ -155,36 +155,27 @@ function openShanDanDan(){
 </div>
 
 <style>
-/* 导航栏里的“登录”按钮 + 下方白色小圆圈 */
+/* 导航栏里的“登录”按钮 —— 白色框 */
 #login-btn{
-  position:relative;
-  color:#FFE8C8;
+  display:inline-block;
+  background:#fff;
+  color:#B22222;
   font-size:14px;
+  font-weight:900;
   letter-spacing:2px;
   margin-left:22px;
+  padding:8px 20px;
+  border-radius:4px;
   cursor:pointer;
   transition:.3s;
-  padding-bottom:8px;
-  display:inline-block;
+  border:2px solid #fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
-#login-btn:hover{color:var(--gold-light);text-shadow:0 0 10px var(--gold);}
-#login-btn::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:0;
-  transform:translateX(-50%);
-  width:6px;
-  height:6px;
-  background:#fff;
-  border:1.5px solid var(--gold);
-  border-radius:50%;
-  box-shadow:0 0 8px rgba(230,180,34,.8);
-  animation:loginCircleBreathe 2s ease-in-out infinite;
-}
-@keyframes loginCircleBreathe{
-  0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 0 6px rgba(230,180,34,.6);}
-  50%{transform:translateX(-50%) scale(1.5);box-shadow:0 0 14px rgba(230,180,34,1);}
+#login-btn:hover{
+  background:transparent;
+  color:#F5D76E;
+  border-color:#F5D76E;
+  box-shadow:0 0 14px rgba(230,180,34,.8);
 }
 
 #login-mask{
@@ -252,7 +243,6 @@ function openShanDanDan(){
 </style>
 
 <script>
-// ====== 内置一个默认账号，方便测试 ======
 var USERS_KEY = "yanan_users";
 (function initDefaultUser(){
   var users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
