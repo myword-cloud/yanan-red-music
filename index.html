@@ -121,57 +121,57 @@ function openShanDanDan(){
 }
 </script>
 <!-- ===== 山丹丹 AI 助手 结束 ===== -->
-  <!-- ===== 登录系统 ===== -->
+<!-- ===== 登录 / 注册系统 ===== -->
 <div id="login-mask">
   <div id="login-box">
     <div class="login-head">
-      <span>登录 · 延安红色音乐平台</span>
+      <span id="login-title">登录 · 延安红色音乐平台</span>
       <span class="login-close" onclick="closeLogin()">✕</span>
     </div>
     <div class="login-body">
+
       <label>用户名</label>
       <input type="text" id="login-user" placeholder="请输入用户名">
+
       <label>密码</label>
       <input type="password" id="login-pass" placeholder="请输入密码">
+
+      <div id="reg-pass2-wrap" style="display:none;">
+        <label>确认密码</label>
+        <input type="password" id="login-pass2" placeholder="请再次输入密码">
+      </div>
+
       <div id="login-tip"></div>
-      <button onclick="doLogin()">登 录</button>
+
+      <button id="login-submit" onclick="doSubmit()">登 录</button>
+
+      <div class="login-switch">
+        <span id="switch-text">还没有账号？</span>
+        <a onclick="switchMode()" id="switch-btn">立即注册</a >
+      </div>
+
     </div>
   </div>
 </div>
 
 <style>
-/* 导航栏里的登录按钮 */
 #login-btn{
-  color:#FFE8C8;
-  font-size:14px;
-  letter-spacing:2px;
-  margin-left:22px;
-  cursor:pointer;
-  transition:.3s;
+  color:#FFE8C8;font-size:14px;letter-spacing:2px;
+  margin-left:22px;cursor:pointer;transition:.3s;
 }
 #login-btn:hover{color:var(--gold-light);text-shadow:0 0 10px var(--gold);}
 
-/* 遮罩 */
 #login-mask{
-  display:none;
-  position:fixed;
-  top:0;left:0;right:0;bottom:0;
-  background:rgba(0,0,0,.55);
-  z-index:9999;
-  align-items:center;
-  justify-content:center;
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,.55);z-index:9999;
+  align-items:center;justify-content:center;
 }
 #login-mask.open{display:flex;}
 
-/* 登录框 */
 #login-box{
-  width:360px;
-  background:#fff;
-  border-radius:10px;
-  overflow:hidden;
+  width:380px;background:#fff;border-radius:10px;overflow:hidden;
   box-shadow:0 20px 60px rgba(0,0,0,.5);
-  animation:loginIn .3s ease-out;
-  border:2px solid var(--gold);
+  animation:loginIn .3s ease-out;border:2px solid var(--gold);
 }
 @keyframes loginIn{
   from{opacity:0;transform:translateY(-20px) scale(.95);}
@@ -179,44 +179,31 @@ function openShanDanDan(){
 }
 .login-head{
   background:linear-gradient(135deg,#B22222,#8B1A1A);
-  color:#F5D76E;
-  padding:16px 20px;
+  color:#F5D76E;padding:16px 20px;
   display:flex;align-items:center;justify-content:space-between;
   font-weight:900;letter-spacing:2px;font-size:15px;
 }
 .login-close{cursor:pointer;font-size:18px;}
-.login-body{padding:28px 24px;}
+.login-body{padding:26px 24px;}
 .login-body label{
-  display:block;
-  font-size:13px;color:#8B1A1A;
+  display:block;font-size:13px;color:#8B1A1A;
   font-weight:700;letter-spacing:2px;
-  margin-bottom:6px;margin-top:12px;
+  margin-bottom:6px;margin-top:14px;
 }
 .login-body label:first-child{margin-top:0;}
 .login-body input{
-  width:100%;
-  padding:10px 14px;
-  border:2px solid #FBF0E0;
-  border-radius:4px;
-  font-size:14px;
-  font-family:inherit;
-  transition:.3s;
-  outline:none;
+  width:100%;padding:10px 14px;
+  border:2px solid #FBF0E0;border-radius:4px;
+  font-size:14px;font-family:inherit;
+  transition:.3s;outline:none;
 }
 .login-body input:focus{border-color:#E6B422;}
 .login-body button{
-  width:100%;
-  margin-top:20px;
+  width:100%;margin-top:20px;
   background:linear-gradient(135deg,#E6B422,#F5D76E);
-  color:#8B1A1A;
-  border:none;
-  padding:12px;
-  font-size:15px;
-  font-weight:900;
-  letter-spacing:4px;
-  border-radius:4px;
-  cursor:pointer;
-  transition:.3s;
+  color:#8B1A1A;border:none;padding:12px;
+  font-size:15px;font-weight:900;letter-spacing:4px;
+  border-radius:4px;cursor:pointer;transition:.3s;
   font-family:inherit;
 }
 .login-body button:hover{
@@ -224,38 +211,114 @@ function openShanDanDan(){
   color:#F5D76E;
 }
 #login-tip{
-  font-size:13px;
-  color:#B22222;
-  margin-top:10px;
-  text-align:center;
-  min-height:18px;
+  font-size:13px;color:#B22222;
+  margin-top:10px;text-align:center;min-height:18px;
+}
+.login-switch{
+  text-align:center;margin-top:16px;
+  font-size:13px;color:#8B1A1A;
+}
+.login-switch a{
+  color:#B22222;font-weight:900;
+  cursor:pointer;text-decoration:underline;
+  margin-left:6px;
 }
 </style>
 
 <script>
-// ====== 账号密码（改这里）======
-var USER = "admin";
-var PASS = "123456";
-// ================================
+// ====== 内置一个默认账号，方便测试 ======
+var USERS_KEY = "yanan_users";
+// 初始化默认账号
+(function initDefaultUser(){
+  var users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
+  if(!users["admin"]){
+    users["admin"] = "123456";
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  }
+})();
+// =========================================
+
+var isRegisterMode = false;
 
 function openLogin(){
+  isRegisterMode = false;
+  updateLoginUI();
   document.getElementById('login-mask').classList.add('open');
+  document.getElementById('login-tip').textContent = "";
 }
 function closeLogin(){
   document.getElementById('login-mask').classList.remove('open');
+  document.getElementById('login-user').value = "";
+  document.getElementById('login-pass').value = "";
+  document.getElementById('login-pass2').value = "";
+  document.getElementById('login-tip').textContent = "";
+}
+function switchMode(){
+  isRegisterMode = !isRegisterMode;
+  document.getElementById('login-tip').textContent = "";
+  updateLoginUI();
+}
+function updateLoginUI(){
+  var title = document.getElementById('login-title');
+  var submit = document.getElementById('login-submit');
+  var switchText = document.getElementById('switch-text');
+  var switchBtn = document.getElementById('switch-btn');
+  var pass2 = document.getElementById('reg-pass2-wrap');
+
+  if(isRegisterMode){
+    title.textContent = "注册 · 延安红色音乐平台";
+    submit.textContent = "注 册";
+    switchText.textContent = "已有账号？";
+    switchBtn.textContent = "去登录";
+    pass2.style.display = "block";
+  } else {
+    title.textContent = "登录 · 延安红色音乐平台";
+    submit.textContent = "登 录";
+    switchText.textContent = "还没有账号？";
+    switchBtn.textContent = "立即注册";
+    pass2.style.display = "none";
+  }
+}
+function doSubmit(){
+  if(isRegisterMode){ doRegister(); }
+  else{ doLogin(); }
+}
+function doRegister(){
+  var u = document.getElementById('login-user').value.trim();
+  var p = document.getElementById('login-pass').value;
+  var p2 = document.getElementById('login-pass2').value;
+  var tip = document.getElementById('login-tip');
+
+  if(!u || !p){ tip.textContent = "用户名和密码不能为空"; return; }
+  if(p !== p2){ tip.textContent = "两次密码输入不一致"; return; }
+
+  var users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
+  if(users[u]){ tip.textContent = "用户名已存在"; return; }
+
+  users[u] = p;
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+
+  tip.style.color = "#1A7A1A";
+  tip.textContent = "注册成功，请登录";
+  isRegisterMode = false;
+  updateLoginUI();
+  setTimeout(function(){ tip.style.color = "#B22222"; tip.textContent = ""; }, 1500);
 }
 function doLogin(){
-  var u = document.getElementById('login-user').value;
+  var u = document.getElementById('login-user').value.trim();
   var p = document.getElementById('login-pass').value;
-  if(u === USER && p === PASS){
-    document.getElementById('login-tip').textContent = "";
+  var tip = document.getElementById('login-tip');
+
+  if(!u || !p){ tip.textContent = "用户名和密码不能为空"; return; }
+
+  var users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
+  if(users[u] && users[u] === p){
     closeLogin();
-    // 改成“已登录”
     var btn = document.getElementById('login-btn');
     btn.textContent = "你好，" + u + "（退出）";
     btn.onclick = function(){ logout(); };
   } else {
-    document.getElementById('login-tip').textContent = "用户名或密码错误，请重试";
+    tip.textContent = "用户名或密码错误，请重试";
   }
 }
 function logout(){
@@ -264,6 +327,6 @@ function logout(){
   btn.onclick = function(){ openLogin(); };
 }
 </script>
-<!-- ===== 登录系统结束 ===== -->
+<!-- ===== 登录 / 注册系统 结束 ===== -->
 </body>
 </html>
