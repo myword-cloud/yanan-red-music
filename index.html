@@ -119,49 +119,46 @@ header{
   background:linear-gradient(90deg,transparent,#F5D76E,transparent);
 }
 
-/* 6 个板块网格：上三下三 */
-.grid{
+
+  .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:16px;
   margin-bottom:36px;
 }
 .card{
-  background:#fff;
   border-radius:10px;
   padding:26px 14px;
   text-align:center;
-  color:#3A1A1A;
-  transition:.35s;
+  color:#fff;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   gap:10px;
   min-height:140px;
-  box-shadow:0 6px 20px rgba(0,0,0,.15);
-  position:relative;overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
   cursor:default;
 }
 .card .num{
-  font-size:14px;
-  color:#B22222;
+  font-size:16px;
   letter-spacing:3px;
-  font-weight:400;
-  opacity:.7;
+  font-weight:900;
+  color:rgba(255,255,255,.85);
 }
 .card .name{
   font-size:16px;
   font-weight:900;
   letter-spacing:2px;
-  color:#3A1A1A;
+  color:#fff;
   line-height:1.4;
 }
-.card:hover{
-  transform:translateY(-6px) scale(1.03);
-  box-shadow:0 14px 32px rgba(0,0,0,.3);
-  background:linear-gradient(135deg,#E6B422,#F5D76E);
-}
-.card:hover .num,
-.card:hover .name{color:#8B1A1A;}
+
+/* 6 种卡片底色 */
+.card.c1{background:#5A9E96;}
+.card.c2{background:#5B8AA6;}
+.card.c3{background:#E89545;}
+.card.c4{background:#C9A96E;}
+.card.c5{background:#7A6FA8;}
+.card.c6{background:#A8322D;}
 
 /* 进入按钮 */
 .enter-btn-wrap{text-align:center;}
@@ -212,13 +209,7 @@ footer span{color:var(--gold);}
   .enter-btn{padding:12px 36px;font-size:15px;letter-spacing:3px;}
   .header-title{font-size:12px;}
 }
-  /* 6 种编号颜色 */
-.card.c1 .num{color:#5A9E96;}
-.card.c2 .num{color:#5B8AA6;}
-.card.c3 .num{color:#E89545;}
-.card.c4 .num{color:#C9A96E;}
-.card.c5 .num{color:#A88FC0;}
-.card.c6 .num{color:#E66A63;}
+
 </style>
 </head>
 <body>
