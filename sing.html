@@ -408,22 +408,21 @@ footer span{color:var(--gold);}
   <p>陕西师范大学音乐学院 | 延安十三年红色音乐赋能高校思政美育调研项目</p >
   <p>延安十三年红色音乐高校美育平台 · <span>红色音乐赋能高校思政美育</span></p >
 </footer>
-<!-- ===== AI 练唱悬浮按钮 ===== -->
-<a href=" " target="_blank" class="ai-float-btn">
+<!-- ===== AI 练唱悬浮按钮（放左侧） ===== -->
+<a href="https://pitchhighway.com" target="_blank" class="ai-float-btn">
   <span class="ai-float-icon">🎤</span>
   <span class="ai-float-text">AI 练唱</span>
 </a >
 
-<!-- 来源标注 -->
 <div class="ai-float-source">
   AI 练唱工具来源：PitchHighway
 </div>
 
 <style>
-/* 悬浮按钮 */
+/* 左侧悬浮按钮 */
 .ai-float-btn{
   position:fixed;
-  right:0;
+  left:0;
   top:50%;
   transform:translateY(-50%);
   background:linear-gradient(135deg,#B22222,#8B1A1A);
@@ -431,13 +430,13 @@ footer span{color:var(--gold);}
   writing-mode:vertical-rl;
   letter-spacing:4px;
   padding:22px 14px;
-  border-radius:8px 0 0 8px;
+  border-radius:0 8px 8px 0;
   text-decoration:none;
   font-weight:900;
   font-size:15px;
-  box-shadow:-4px 6px 20px rgba(139,26,26,.4);
+  box-shadow:4px 6px 20px rgba(139,26,26,.4);
   border:2px solid #E6B422;
-  border-right:none;
+  border-left:none;
   z-index:9998;
   transition:.3s;
   display:flex;
@@ -446,13 +445,13 @@ footer span{color:var(--gold);}
   animation:aiFloatBreath 3s ease-in-out infinite;
 }
 @keyframes aiFloatBreath{
-  0%,100%{box-shadow:-4px 6px 20px rgba(139,26,26,.4);}
-  50%{box-shadow:-4px 6px 30px rgba(230,180,34,.9);}
+  0%,100%{box-shadow:4px 6px 20px rgba(139,26,26,.4);}
+  50%{box-shadow:4px 6px 30px rgba(230,180,34,.9);}
 }
 .ai-float-btn:hover{
   background:linear-gradient(135deg,#E6B422,#F5D76E);
   color:#8B1A1A;
-  transform:translateY(-50%) translateX(-6px);
+  transform:translateY(-50%) translateX(6px);
   animation:none;
 }
 .ai-float-icon{
@@ -463,16 +462,16 @@ footer span{color:var(--gold);}
 /* 来源标注 */
 .ai-float-source{
   position:fixed;
-  right:0;
+  left:0;
   top:calc(50% + 130px);
   background:rgba(139,26,26,.85);
   color:#F5D76E;
   font-size:11px;
   letter-spacing:1px;
   padding:6px 10px;
-  border-radius:6px 0 0 6px;
+  border-radius:0 6px 6px 0;
   border:1px solid #E6B422;
-  border-right:none;
+  border-left:none;
   z-index:9997;
   writing-mode:vertical-rl;
   max-height:200px;
