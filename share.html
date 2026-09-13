@@ -10,36 +10,43 @@
 body{font-family:"Microsoft YaHei","PingFang SC","Noto Serif SC",serif;background:var(--cream);color:var(--text);line-height:1.9;}
 header{background:var(--red-main);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
 .header-left{display:flex;align-items:center;gap:14px;}
-.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--red-deep);font-weight:900;font-size:22px;animation:logoPulse 3s ease-in-out infinite;}
-@keyframes logoPulse{0%,100%{box-shadow:0 0 0 rgba(230,180,34,0);}50%{box-shadow:0 0 20px rgba(230,180,34,.7);}}
+.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--red-deep);font-weight:900;font-size:22px;}
 .header-title{font-size:18px;font-weight:900;letter-spacing:2px;color:#fff;}
 .header-nav a{color:#FFE8C8;text-decoration:none;margin-left:22px;font-size:14px;letter-spacing:2px;transition:.3s;}
 .header-nav a:hover{color:var(--gold-light);text-shadow:0 0 10px var(--gold);}
+#login-btn{display:inline-block;background:#fff;color:#B22222;font-size:13px;font-weight:900;letter-spacing:2px;padding:7px 18px;border-radius:4px;cursor:pointer;transition:.3s;border:2px solid #fff;margin-left:22px;}
+#login-btn:hover{background:transparent;color:#F5D76E;border-color:#F5D76E;}
 .page-banner{background:linear-gradient(135deg,var(--red-main),var(--red-deep),var(--red-main));background-size:200% 200%;color:#fff;text-align:center;padding:70px 40px 60px;animation:bannerFlow 8s ease infinite;}
 @keyframes bannerFlow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-.page-banner h1{font-size:46px;letter-spacing:10px;font-weight:900;margin-bottom:16px;color:var(--gold-light);text-shadow:2px 2px 0 rgba(0,0,0,.2),0 0 30px rgba(230,180,34,.25);animation:titleFade 1s ease-out;}
-@keyframes titleFade{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
-.page-banner .gold-line{width:140px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto;animation:lineExpand 1s ease-out;}
-@keyframes lineExpand{from{width:0;opacity:0;}to{width:140px;opacity:1;}}
-.content{max-width:900px;margin:0 auto;padding:60px 40px;}
-.sub-title-box{display:inline-block;background:var(--red-deep);color:var(--gold-light);padding:8px 26px;font-size:16px;letter-spacing:4px;font-weight:700;border-radius:2px;border-left:4px solid var(--gold);box-shadow:0 3px 10px rgba(139,26,26,.35);margin-bottom:20px;transition:.3s;}
-.sub-title-box:hover{transform:translateX(6px);box-shadow:0 3px 20px rgba(230,180,34,.5);}
-.detail-block{background:#fff;border-left:6px solid var(--red-main);padding:30px 34px;margin-bottom:28px;box-shadow:0 6px 20px rgba(139,26,26,.1);border-radius:0 4px 4px 0;transition:.4s;opacity:0;animation:blockIn .8s ease-out forwards;}
-.detail-block:nth-child(2){animation-delay:.15s;}
-.detail-block:nth-child(4){animation-delay:.3s;}
-.detail-block:nth-child(6){animation-delay:.45s;}
-@keyframes blockIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.detail-block:hover{border-left-color:var(--gold);box-shadow:0 10px 30px rgba(139,26,26,.2);transform:translateX(6px);}
+.page-banner h1{font-size:46px;letter-spacing:10px;font-weight:900;margin-bottom:16px;color:var(--gold-light);}
+.page-banner .gold-line{width:140px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto;}
+.content{max-width:1000px;margin:0 auto;padding:60px 40px;}
+.sub-title-box{display:block;width:fit-content;background:var(--red-deep);color:var(--gold-light);padding:8px 26px;font-size:16px;letter-spacing:4px;font-weight:700;border-radius:2px;border-left:4px solid var(--gold);box-shadow:0 3px 10px rgba(139,26,26,.35);margin-bottom:20px;}
+.detail-block{background:#fff;border-left:6px solid var(--red-main);padding:30px 34px;margin-bottom:28px;box-shadow:0 6px 20px rgba(139,26,26,.1);border-radius:0 4px 4px 0;}
 .detail-block h3{color:var(--red-deep);font-size:22px;letter-spacing:4px;margin-bottom:12px;font-weight:800;}
 .detail-block p{font-size:15px;color:#5A3A3A;letter-spacing:1px;text-indent:2em;margin-bottom:10px;}
-.detail-block p:last-child{margin-bottom:0;}
-.back-btn{display:inline-block;margin-top:20px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--red-deep);padding:12px 40px;letter-spacing:4px;font-weight:700;text-decoration:none;border-radius:2px;transition:.3s;box-shadow:0 4px 12px rgba(230,180,34,.3);animation:btnBreath 2.4s ease-in-out infinite;}
-@keyframes btnBreath{0%,100%{box-shadow:0 4px 12px rgba(230,180,34,.3);}50%{box-shadow:0 6px 24px rgba(230,180,34,.7);}}
-.back-btn:hover{background:var(--red-deep);color:var(--gold-light);animation:none;transform:scale(1.05);}
-footer{background:#2A0A0A;color:#C9A9A9;text-align:center;padding:20px;font-size:13px;letter-spacing:2px;margin-top:40px;}
-footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;display:inline-block;}
-@keyframes footerGlow{0%,100%{opacity:.8;}50%{opacity:1;text-shadow:0 0 10px var(--gold);}}
-@media(max-width:768px){.page-banner h1{font-size:28px;letter-spacing:6px;}.header-title{font-size:14px;}.header-nav a{margin-left:12px;font-size:12px;}}
+
+/* 图片网格 */
+.img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:18px;}
+.img-grid img{width:100%;height:160px;object-fit:cover;border-radius:6px;cursor:pointer;transition:.3s;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.img-grid img:hover{transform:scale(1.05);box-shadow:0 10px 24px rgba(139,26,26,.3);}
+
+/* 视频列表 */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:18px;}
+.video-grid video{width:100%;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.15);background:#000;}
+
+.back-btn{display:inline-block;margin-top:20px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--red-deep);padding:12px 40px;letter-spacing:4px;font-weight:700;text-decoration:none;border-radius:2px;transition:.3s;box-shadow:0 4px 12px rgba(230,180,34,.3);}
+.back-btn:hover{background:var(--red-deep);color:var(--gold-light);}
+
+footer{background:#2A0A0A;color:#C9A9A9;text-align:center;padding:22px 20px;font-size:13px;letter-spacing:2px;margin-top:40px;line-height:1.8;}
+footer span{color:var(--gold);}
+
+@media(max-width:768px){
+  .page-banner h1{font-size:28px;letter-spacing:6px;}
+  .header-title{font-size:14px;}
+  .header-nav a{margin-left:12px;font-size:12px;}
+  .content{padding:40px 20px;}
+}
 </style>
 </head>
 <body>
@@ -50,9 +57,10 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
     <div class="header-title">延安十三年红色音乐高校美育平台</div>
   </div>
   <nav class="header-nav">
-    <a href="index.html">首页</a >
+    <a href=" ">首页</a >
     <a href="menu.html">学习板块</a >
     <a href="about.html">关于平台</a >
+    <span id="login-btn" onclick="openLogin()">登录</span>
   </nav>
 </header>
 
@@ -63,18 +71,54 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
 
 <section class="content">
 
+  <!-- 调研影像 -->
   <div class="sub-title-box">调研影像</div>
   <div class="detail-block">
     <h3>调研影像</h3>
-    <p>展示高校师生赴延安实地调研拍摄的图片与视频资料，记录红色音乐的历史现场与当代传承。</p >
+    <p>展示高校师生赴延安实地调研拍摄的图片资料，记录红色音乐的历史现场与当代传承。</p >
+    <div class="img-grid">
+      < img src="t1.jpg" alt="调研影像1">
+      < img src="t2.jpg" alt="调研影像2">
+      < img src="t3.jpg" alt="调研影像3">
+      < img src="t4.jpg" alt="调研影像4">
+      < img src="t5.jpg" alt="调研影像5">
+      < img src="t6.jpg" alt="调研影像6">
+      < img src="t7.jpg" alt="调研影像7">
+      < img src="t8.jpg" alt="调研影像8">
+      < img src="t9.jpg" alt="调研影像9">
+      < img src="t10.jpg" alt="调研影像10">
+      < img src="t11.jpg" alt="调研影像11">
+      < img src="t12.jpg" alt="调研影像12">
+      < img src="t13.jpg" alt="调研影像13">
+    </div>
   </div>
 
+  <!-- 演出视频 -->
   <div class="sub-title-box">演出视频</div>
   <div class="detail-block">
     <h3>演出视频</h3>
     <p>展示师生红色音乐演出、合唱实训等成果视频，呈现高校美育实践的生动面貌。</p >
+    <div class="video-grid">
+      <video controls>
+        <source src="share1.mp4" type="video/mp4">
+        您的浏览器不支持视频播放。
+      </video>
+      <video controls>
+        <source src="share2.mp4" type="video/mp4">
+      </video>
+      <video controls>
+        <source src="share3.mp4" type="video/mp4">
+      </video>
+      <video controls>
+        <source src="share4.mp4" type="video/mp4">
+      </video>
+      <video controls>
+        <source src="share5.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
 
+  <!-- 学习心得 -->
   <div class="sub-title-box">学习心得</div>
   <div class="detail-block">
     <h3>学习心得</h3>
@@ -88,7 +132,6 @@ footer span{color:var(--gold);animation:footerGlow 3s ease-in-out infinite;displ
   <p>陕西师范大学音乐学院 | 延安十三年红色音乐赋能高校思政美育调研项目</p >
   <p>延安十三年红色音乐高校美育平台 · <span>红色音乐赋能高校思政美育</span></p >
 </footer>
-
 <!-- ===== 延小音 AI 形象 ===== -->
 <a href="https://yuanqi.tencent.com/webim/#/chat/mrkcel?appid=2098349671251635264&experience=true" target="_blank" class="ai-avatar-btn">
   <img src="ai1.jpg" alt="延小音">
